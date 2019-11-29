@@ -24,4 +24,4 @@ apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/AA
 ☆ https://github.com/AAAAAEXQOSyIpN2JZ0ehUQ ☆
 ```
 
-**By: [ FULL SCRIPTS ⃘⃤꙰✰ ] VPS**
+**By: [ FULL SCRIPTS ⃘⃤꙰✰ ]**
