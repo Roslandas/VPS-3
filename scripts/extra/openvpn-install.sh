@@ -58,12 +58,12 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 	clear
 		echo "MENÚ OpenVPN ya está instalado"
 		echo ""
-		echo "¿Qué quieres hacer?"
-		echo "   1) Agregar un nuevo usuario"
-		echo "   2) Eliminar un usuario existente"
-		echo "   3) Desintalar OpenVPN"
-		echo "   4) Volver al menú principal"
-		read -p "Seleccione una opcion [1-4]: " option
+		echo "¿Ko tu nori??"
+		echo "   1) Prideti nauja vartotoja"
+		echo "   2) Istrinkite esama vartotoja"
+		echo "   3) Pasalinkite „OpenVPN“"
+		echo "   4) Grizti i pagrindini meniu"
+		read -p "Pasirinkite parinkti [1-4]: " option
 		case $option in
 			1) 
 			echo
