@@ -28,7 +28,7 @@ echo "recibir apoyo y ayuda para la solución de problemas, siempre que reúna l
 echo "b. El usuario de este conjunto de scripts es el único responsable de cualquier tipo de implicación"
 echo "legal o ética causada por el uso de este conjunto de secuencias de comandos para cualquier propósito."
 echo ""
-tput setaf 3 ; tput bold ; read -n 1 -s -p "Aperte qualquer tecla para continuar..." ; echo "" ; echo "" ; tput sgr0
+tput setaf 3 ; tput bold ; read -n 1 -s -p "Noredami testi, paspauskite bet kuri mygtuka..." ; echo "" ; echo "" ; tput sgr0
 echo "4. El usuario acepta que el promotor no se hace responsable de:"
 echo "a. Los problemas causados por el uso de scripts no autorizados distribuidos."
 echo "b. Los problemas causados por conflictos entre este conjunto de secuencias de comandos y scripts de desarrollador."
@@ -39,7 +39,7 @@ echo "f. problemas causados por el usuario no sigue las instrucciones del conjun
 echo "g. problemas ocurrieron durante el uso de scripts para beneficio comercial."
 echo "h. Los problemas que pueden ocurrir cuando se utiliza el conjunto de scripts en sistemas que no están en la lista de sistemas a prueba."
 echo ""
-tput setaf 3 ; tput bold ; read -n 1 -s -p "Presina Cualquier tecla para continuar..." ; echo "" ; echo "" ; tput sgr0
+tput setaf 3 ; tput bold ; read -n 1 -s -p "Noredami testi, paspauskite bet kuri mygtuka..." ; echo "" ; echo "" ; tput sgr0
 IP=$(wget -qO- ipv4.icanhazip.com)
 read -p "Para continuar confirme o IP de este servidor: " -e -i $IP ipdovps
 if [ -z "$ipdovps" ]
