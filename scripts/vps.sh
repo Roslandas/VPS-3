@@ -40,31 +40,31 @@ fi
 if [ "$1" = "" ]; then
 clear
 echo -e "\033[1;34m ===================================\033[0m"
-echo -e "\033[1;31m ∆ \033[1;37mOFICIAL VPS-SERVER\033[0m"
+echo -e "\033[1;31m ∆ \033[1;37mROLKOS MODAS\033[0m"
 echo -e "\033[1;31m √ \033[1;37mVPS-MANAGER V3.0\033[0m"
 echo -e "\033[1;34m ===================================\033[0m"
 sso=$(cat -n /etc/issue |grep 1 |cut -d' ' -f6,7,8 |sed 's/1//' |sed 's/      //')
-echo -e "\033[1;31m ° \033[1;37m SU SISTEMA \033[1;31m$sso"
+echo -e "\033[1;31m ° \033[1;37m JUSU SISTEMA \033[1;31m$sso"
 echo -e "\033[1;34m ===================================\033[0m"
-echo -e "\033[1;31m ∆ \033[1;33m¡BIENVENIDO AL MENÚ!\033[0m"
+echo -e "\033[1;31m ∆ \033[1;33m¡SVEIKI ATVYKE Į MENIU!\033[0m"
 echo -e "\033[1;34m ===================================\033[0m"
-echo -e "\033[1;31m |1|• \033[1;37mCREAR USUARIOS\033[01;37m"
-echo -e "\033[1;31m |2|• \033[1;37mALTERAR PASSWD USUARIOS\033[01;37m"
-echo -e "\033[1;31m |3|• \033[1;37mMODIFICAR FECHA USUARIOS\033[01;37m"
-echo -e "\033[1;31m |4|• \033[1;37mALTERAR LIMITE USUARIOS\033[01;37m"
-echo -e "\033[1;31m |5|• \033[1;37mELIMINAR USUARIOS\033[01;37m"
-echo -e "\033[1;31m |6|• \033[1;37mELIMINAR USUARIOS VENCIDOS\033[01;37m"
-echo -e "\033[1;31m |7|• \033[1;37mVERIFICAR USUARIOS ONLINE\033[01;37m"
-echo -e "\033[1;31m |8|• \033[1;37mKILL MULTILOGUIN\033[01;37m"
-echo -e "\033[1;31m |9|• \033[1;37mAGREGAR HOST\033[01;37m"
-echo -e "\033[1;31m |10|• \033[1;37mELIMINAR HOST\033[01;37m"
+echo -e "\033[1;31m |1|• \033[1;37mSUKURTI VARTOTOJA\033[01;37m"
+echo -e "\033[1;31m |2|• \033[1;37mPAKEISKITE PASSWD VARTOTOJU\033[01;37m"
+echo -e "\033[1;31m |3|• \033[1;37mPAKEISKITE DATA VARTOTOJU\033[01;37m"
+echo -e "\033[1;31m |4|• \033[1;37mPAKEISKITE LIMITA VARTOTOJU\033[01;37m"
+echo -e "\033[1;31m |5|• \033[1;37mNAUDOTI NAUDOTOJUS\033[01;37m"
+echo -e "\033[1;31m |6|• \033[1;37mIGALINTI NAUDOTOJUS\033[01;37m"
+echo -e "\033[1;31m |7|• \033[1;37mPASIJUNGE VARTOTOJAI\033[01;37m"
+echo -e "\033[1;31m |8|• \033[1;37mZUDOK MULTILOGUINA\033[01;37m"
+echo -e "\033[1;31m |9|• \033[1;37mPRIDETI HOST\033[01;37m"
+echo -e "\033[1;31m |10|• \033[1;37mISTRINTI HOST\033[01;37m"
 echo -e "\033[1;31m |11|• \033[1;37mBADVPN UDP\033[01;37m"
-echo -e "\033[1;31m |12|• \033[1;37mBACKUP USUARIOS\033[01;37m"
-echo -e "\033[1;31m |13|• \033[1;37mTESTAR VELOCIDAD\033[01;37m"
+echo -e "\033[1;31m |12|• \033[1;37mVARTOTOJU KOPIJOS\033[01;37m"
+echo -e "\033[1;31m |13|• \033[1;37mBANDYMO GREITIS\033[01;37m"
 echo -e "\033[1;31m |14|• \033[1;37mTCP SPEED\033[01;37m"
 echo -e "\033[1;31m |15|• \033[1;37mOPENVPN TCP/UDP\033[01;37m"
 echo -e "\033[1;34m ===================================\033[0m"
-echo -e "\033[1;35m Opción\033[0m"
+echo -e "\033[1;35m Pasirinkimas\033[0m"
 read -p " : " op
 else
 op="$1"
@@ -127,7 +127,7 @@ exit
 exit
 ;;
 *)
-tput setaf 7 ; tput setab 4 ; tput bold ; printf '%44s%s%-20s\n' "OPCIÓN INVÁLIDA..." ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; printf '%44s%s%-20s\n' "Negaliojantis pasirinkimas..." ; tput sgr0
 sleep 1
 vps
 exit
