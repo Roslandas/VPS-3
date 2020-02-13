@@ -1,7 +1,7 @@
 #!/bin/bash
 rm -rf $HOME/vpsmanagersetup.sh
 tput setaf 7 ; tput setab 4 ; tput bold ; printf '%35s%s%-20s\n' "VPS-MANAGER V3.0" ; tput sgr0
-tput setaf 3 ; tput bold ; echo "" ; echo "Este script irá:" ; echo ""
+tput setaf 3 ; tput bold ; echo "" ; echo "Sis scenarijus bus:" ; echo ""
 echo "● Idiekite ir sukonfiguruokite proxy squid portai 80, 3128, 8080 e 8799" ; echo "  leisti SSH rysius su siuo serveriu"
 echo "● Konfiguruokite „OpenSSH“ paleisti 22 ir 443 prievaduose"
 echo "● Idiekite komandų seku ir sistemos komandų rinkini vartotojo valdymui" ; tput sgr0
