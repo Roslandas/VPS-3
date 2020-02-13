@@ -2,20 +2,20 @@
 rm -rf $HOME/vpsmanagersetup.sh
 tput setaf 7 ; tput setab 4 ; tput bold ; printf '%35s%s%-20s\n' "VPS-MANAGER V3.0" ; tput sgr0
 tput setaf 3 ; tput bold ; echo "" ; echo "Este script irá:" ; echo ""
-echo "● Instalar y configurar el proxy squid en las puertos 80, 3128, 8080 e 8799" ; echo "  para permitir conexiones SSH a este servidor"
-echo "● Configurar OpenSSH para ejecutarse en los puertos 22 e 443"
-echo "● Instalar un conjunto de secuencias de comandos y comandos del sistema para la gestión de los usuarios" ; tput sgr0
+echo "● Idiekite ir sukonfiguruokite proxy squid portai 80, 3128, 8080 e 8799" ; echo "  leisti SSH rysius su siuo serveriu"
+echo "● Konfiguruokite „OpenSSH“ paleisti 22 ir 443 prievaduose"
+echo "● Idiekite komandų seku ir sistemos komandų rinkini vartotojo valdymui" ; tput sgr0
 echo ""
-tput setaf 3 ; tput bold ; read -n 1 -s -p "Pulse cualquier tecla para continuar ... " ; echo "" ; echo "" ; tput sgr0
-tput setaf 2 ; tput bold ; echo "	Terminos de uso" ; tput sgr0
+tput setaf 3 ; tput bold ; read -n 1 -s -p "Noredami testi, paspauskite bet kuri mygtuka ... " ; echo "" ; echo "" ; tput sgr0
+tput setaf 2 ; tput bold ; echo "	Naudojimo salygos" ; tput sgr0
 echo ""
-echo "Mediante el uso de 'Administrador de VPS-MANAGER V3.0' está de acuerdo con las siguientes condiciones de uso:"
+echo "Naudodamiesi „VPS-MANAGER V3.0 Administrator“ jus sutinkate su siomis naudojimo sąlygomis:"
 echo ""
-echo "1. Tu puedes:"
-echo "a. Instalar y utilizar el 'VPS-MANAGER V3.0' en el servidor ."
-echo "b. Crear, administrar y eliminar un número ilimitado de usuarios a través de este conjunto de scripts."
+echo "1. Jus galite:"
+echo "a. idiekite ir naudokite „VPS-MANAGER V3.0“ serveryje ."
+echo "b. Sukurkite, tvarkykite ir pasalinkite neribota vartotojų skaičių naudodami si scenariji rinkini."
 echo ""
-tput setaf 3 ; tput bold ; read -n 1 -s -p "Aperte qualquer tecla para continuar..." ; echo "" ; echo "" ; tput sgr0
+tput setaf 3 ; tput bold ; read -n 1 -s -p "Noredami testi, paspauskite bet kuri mygtuka..." ; echo "" ; echo "" ; tput sgr0
 echo "2. Tu no puedes:"
 echo "a. Editar, modificar, compartir o redistribuir"
 echo "este conjunto de secuencias de comandos sin autorización desarrollador."
@@ -78,51 +78,51 @@ if [ -f "/usr/sbin/ufw" ] ; then
 fi
 if [ -d "/etc/squid3/" ]
 then
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/squid1.txt -O /tmp/sqd1
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/squid1.txt -O /tmp/sqd1
 	echo "acl url3 dstdomain -i $ipdovps" > /tmp/sqd2
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/squid2.txt -O /tmp/sqd3
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/squid2.txt -O /tmp/sqd3
 	cat /tmp/sqd1 /tmp/sqd2 /tmp/sqd3 > /etc/squid3/squid.conf
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/payload.txt -O /etc/squid3/payload.txt
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/payload.txt -O /etc/squid3/payload.txt
 	echo " " >> /etc/squid3/payload.txt
 	grep -v "^Port 443" /etc/ssh/sshd_config > /tmp/ssh && mv /tmp/ssh /etc/ssh/sshd_config
 	echo "Port 443" >> /etc/ssh/sshd_config
 	grep -v "^PasswordAuthentication yes" /etc/ssh/sshd_config > /tmp/passlogin && mv /tmp/passlogin /etc/ssh/sshd_config
 	echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/addhost.sh -O /bin/addhost
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/addhost.sh -O /bin/addhost
 	chmod +x /bin/addhost
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/alterarclaveusuario.sh -O /bin/alterarclaveusuario
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/alterarclaveusuario.sh -O /bin/alterarclaveusuario
 	chmod +x /bin/alterarclaveusuario
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/socks.sh -O /bin/socked
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/socks.sh -O /bin/socked
 	chmod +x /bin/socked
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/shadowsocks.sh -O /bin/shadowsocks
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/shadowsocks.sh -O /bin/shadowsocks
 	chmod +x /bin/shadowsocks
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/crearusuario2.sh -O /bin/crearusuario
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/crearusuario2.sh -O /bin/crearusuario
 	chmod +x /bin/crearusuario
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/delhost.sh -O /bin/delhost
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/delhost.sh -O /bin/delhost
 	chmod +x /bin/delhost
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/expcleaner2.sh -O /bin/expcleaner
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/expcleaner2.sh -O /bin/expcleaner
 	chmod +x /bin/expcleaner
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/mudardata.sh -O /bin/mudardata
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/mudardata.sh -O /bin/mudardata
 	chmod +x /bin/mudardata
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/remover.sh -O /bin/remover
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/remover.sh -O /bin/remover
 	chmod +x /bin/remover
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/sshlimiter2.sh -O /bin/sshlimiter
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/sshlimiter2.sh -O /bin/sshlimiter
 	chmod +x /bin/sshlimiter
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/alterarlimite.sh -O /bin/alterarlimite
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/alterarlimite.sh -O /bin/alterarlimite
 	chmod +x /bin/alterarlimite
 	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/vps.sh -O /bin/vps
 	chmod +x /bin/vps
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/sshmonitor2.sh -O /bin/sshmonitor
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/sshmonitor2.sh -O /bin/sshmonitor
 	chmod +x /bin/sshmonitor
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/extra/speedtest.py -O /bin/speedtest.py
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/extra/speedtest.py -O /bin/speedtest.py
 	chmod +x /bin/speedtest.py
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/extra/badvpnsetup.sh -O /bin/badvpnsetup
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/extra/badvpnsetup.sh -O /bin/badvpnsetup
 	chmod +x /bin/badvpnsetup
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/extra/userbackup.sh -O /bin/userbackup
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/extra/userbackup.sh -O /bin/userbackup
 	chmod +x /bin/userbackup
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/extra/openvpn-install.sh -O /bin/openvpn-install
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/extra/openvpn-install.sh -O /bin/openvpn-install
 	chmod +x /bin/openvpn-install
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/extra/tcptweaker.sh -O /bin/tcptweaker
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/extra/tcptweaker.sh -O /bin/tcptweaker
 	chmod +x /bin/tcptweaker
 	if [ ! -f "/etc/init.d/squid3" ]
 	then
@@ -139,47 +139,47 @@ then
 fi
 if [ -d "/etc/squid/" ]
 then
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/squid1.txt -O /tmp/sqd1
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/squid1.txt -O /tmp/sqd1
 	echo "acl url3 dstdomain -i $ipdovps" > /tmp/sqd2
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/squid.txt -O /tmp/sqd3
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/squid.txt -O /tmp/sqd3
 	cat /tmp/sqd1 /tmp/sqd2 /tmp/sqd3 > /etc/squid/squid.conf
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/payload.txt -O /etc/squid/payload.txt
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/payload.txt -O /etc/squid/payload.txt
 	echo " " >> /etc/squid/payload.txt
 	grep -v "^Port 443" /etc/ssh/sshd_config > /tmp/ssh && mv /tmp/ssh /etc/ssh/sshd_config
 	echo "Port 443" >> /etc/ssh/sshd_config
 	grep -v "^PasswordAuthentication yes" /etc/ssh/sshd_config > /tmp/passlogin && mv /tmp/passlogin /etc/ssh/sshd_config
 	echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/2/addhost.sh -O /bin/addhost
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/2/addhost.sh -O /bin/addhost
 	chmod +x /bin/addhost
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/alterarclaveusuario.sh -O /bin/alterarclaveusuario
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/alterarclaveusuario.sh -O /bin/alterarclaveusuario
 	chmod +x /bin/alterarclaveusuario
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/crearusuario2.sh -O /bin/crearusuario
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/crearusuario2.sh -O /bin/crearusuario
 	chmod +x /bin/crearusuario
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/2/delhost.sh -O /bin/delhost
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/2/delhost.sh -O /bin/delhost
 	chmod +x /bin/delhost
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/expcleaner2.sh -O /bin/expcleaner
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/expcleaner2.sh -O /bin/expcleaner
 	chmod +x /bin/expcleaner
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/mudardata.sh -O /bin/mudardata
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/mudardata.sh -O /bin/mudardata
 	chmod +x /bin/mudardata
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/remover.sh -O /bin/remover
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/remover.sh -O /bin/remover
 	chmod +x /bin/remover
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/sshlimiter2.sh -O /bin/sshlimiter
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/sshlimiter2.sh -O /bin/sshlimiter
 	chmod +x /bin/sshlimiter
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/alterarlimite.sh -O /bin/alterarlimite
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/alterarlimite.sh -O /bin/alterarlimite
 	chmod +x /bin/alterarlimite
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/vps.sh -O /bin/vps
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/vps.sh -O /bin/vps
 	chmod +x /bin/vps
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/sshmonitor2.sh -O /bin/sshmonitor
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/sshmonitor2.sh -O /bin/sshmonitor
 	chmod +x /bin/sshmonitor
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/extra/speedtest.py -O /bin/speedtest.py
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/extra/speedtest.py -O /bin/speedtest.py
 	chmod +x /bin/speedtest.py
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/extra/badvpnsetup.sh -O /bin/badvpnsetup
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/extra/badvpnsetup.sh -O /bin/badvpnsetup
 	chmod +x /bin/badvpnsetup
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/extra/userbackup.sh -O /bin/userbackup
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/extra/userbackup.sh -O /bin/userbackup
 	chmod +x /bin/userbackup
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/extra/openvpn-install.sh -O /bin/openvpn-install
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/extra/openvpn-install.sh -O /bin/openvpn-install
 	chmod +x /bin/openvpn-install
-	wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MANAGER-V3.0/master/scripts/extra/tcptweaker.sh -O /bin/tcptweaker
+	wget https://raw.githubusercontent.com/rolka1978/VPS-3/master/scripts/extra/tcptweaker.sh -O /bin/tcptweaker
 	chmod +x /bin/tcptweaker
 	if [ ! -f "/etc/init.d/squid" ]
 	then
@@ -195,11 +195,11 @@ then
 	fi
 fi
 echo ""
-tput setaf 7 ; tput setab 4 ; tput bold ; echo "Proxy squid instalado y en ejecución en los puertos: 80, 3128, 8080 y 8799" ; tput sgr0
-tput setaf 7 ; tput setab 4 ; tput bold ; echo "OpenSSH se ejecuta en los puertos 22 y 443" ; tput sgr0
-tput setaf 7 ; tput setab 4 ; tput bold ; echo "scripts para la gestión de usuarios instalados" ; tput sgr0
-tput setaf 7 ; tput setab 4 ; tput bold ; echo "Lea la documentación para evitar preguntas y problemas!" ; tput sgr0
-tput setaf 7 ; tput setab 4 ; tput bold ; echo "Para ver los comandos disponibles, usar el comando: vps" ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; echo "Proxy serveris įdiegtas ir vykdomas portas: 80, 3128, 8080 ir 8799" ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; echo "„OpenSSH“ veikia porte 22 ir 443" ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; echo "idiegtu vartotoju valdymo scenarijai" ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; echo "Perskaitykite dokumentus, kad isvengtumete klausimu ir problemu!" ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; echo "Noredami pamatyti galimas komandas, naudokite komanda: vps" ; tput sgr0
 echo ""
 if [[ "$optiondb" = '2' ]]; then
 	awk -F : '$3 >= 500 { print $1 " 1" }' /etc/passwd | grep -v '^nobody' > /root/usuarios.db
