@@ -8,8 +8,8 @@ then
 fi
 while true
 do
-tput setaf 7 ; tput setab 4 ; tput bold ; printf '%28s%s%-18s\n' "SSH Limiter"
-tput setaf 7 ; tput setab 4 ; printf '  %-30s%s\n' "Usuário" "Conexión / Límite " ; echo "" ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; printf '%28s%s%-18s\n' "Limitas"
+tput setaf 7 ; tput setab 4 ; printf '  %-30s%s\n' "Vartotojas" "Pasijunge / Limitas " ; echo "" ; tput sgr0
 	while read usline
 	do
 		user="$(echo $usline | cut -d' ' -f1)"
@@ -21,7 +21,7 @@ tput setaf 7 ; tput setab 4 ; printf '  %-30s%s\n' "Usuário" "Conexión / Lími
 			s1ssh="$(cat /tmp/tmp2 | wc -l)"
 			tput setaf 3 ; tput bold ; printf '  %-35s%s\n' $user $s1ssh/$s2ssh; tput sgr0
 			if [ "$s1ssh" -gt "$s2ssh" ]; then
-				tput setaf 7 ; tput setab 1 ; tput bold ; echo " Usuário desconectado por ultrapassar el limite!" ; tput sgr0
+				tput setaf 7 ; tput setab 1 ; tput bold ; echo " Vartotojas atjungtas uz limito virsijima!" ; tput sgr0
 				while read line
 				do
 					tmp="$(echo $line | cut -d' ' -f1)"
