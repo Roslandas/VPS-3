@@ -56,9 +56,9 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 	while :
 	do
 	clear
-		echo "MENÚ OpenVPN ya está instalado"
+		echo "Idiegtas „OpenVPN“"
 		echo ""
-		echo "¿Ko tu nori??"
+		echo "¿Ka norite daryti??"
 		echo "   1) Prideti nauja vartotoja"
 		echo "   2) Istrinkite esama vartotoja"
 		echo "   3) Pasalinkite „OpenVPN“"
