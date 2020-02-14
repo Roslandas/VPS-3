@@ -1,33 +1,33 @@
 #!/bin/bash
-tput setaf 7 ; tput setab 4 ; tput bold ; printf '%30s%s%-15s\n' "Crear Usuário SSH" ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; printf '%30s%s%-15s\n' "Sukurti vartotoja" ; tput sgr0
 echo ""
 read -p "nombre de elusuário: " username
 awk -F : ' { print $1 }' /etc/passwd > /tmp/users 
 if grep -Fxq "$username" /tmp/users
 then
-	tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "Este usuario ya existe. Crear un usuario con otro nombre." ; echo "" ; tput sgr0
+	tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "Sio vartotojo nera. Sukurkite vartotoja kitu vardu." ; echo "" ; tput sgr0
 	exit 1	
 else
 	if (echo $username | egrep [^a-zA-Z0-9.-_] &> /dev/null)
 	then
-		tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "ha introducido un nombre de usuario válido!" ; tput setab 1 ; echo "utilizar sólo letras, números, puntos y rayas." ; tput setab 4 ; echo "No utilice espacios, acentos o caracteres especiales!" ; echo "" ; tput sgr0
+		tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "ivestas galiojantis vartotojo vardas!" ; tput setab 1 ; echo "naudokite tik raides, skaicius, taskus ir spindulius." ; tput setab 4 ; echo "Kosmoso irankyje akcentai ar specialieji zenklai!" ; echo "" ; tput sgr0
 		exit 1
 	else
 		sizemin=$(echo ${#username})
 		if [[ $sizemin -lt 2 ]]
 		then
-			tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "Ha introducido un nombre de usuario muy corto," ; echo "utilizar al menos dos caracteres!" ; echo "" ; tput sgr0
+			tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "Buvo ivestas labai trumpas vartotojo vardas," ; echo "naudoti maziau nei simbolius!" ; echo "" ; tput sgr0
 			exit 1
 		else
 			sizemax=$(echo ${#username})
 			if [[ $sizemax -gt 32 ]]
 			then
-				tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "Ha introducido un nombre de usuario muy grande," ; echo "utilizar no más de 32 caracteres!" ; echo "" ; tput sgr0
+				tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "Buvo ivestas labai didelis vartotojo vardas," ; echo "naudoti ne daugiau kaip 32 simbolius!" ; echo "" ; tput sgr0
 				exit 1
 			else
 				if [[ -z $username ]]
 				then
-					tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "Ha introducido un nombre de usuario vacío!" ; echo "" ; tput sgr0
+					tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "Buvo ivestas laisvos vietos vartotojo vardas!" ; echo "" ; tput sgr0
 					exit 1
 				else	
 					read -p "contraseña: " password
