@@ -30,7 +30,7 @@ else
 					tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "Buvo ivestas laisvos vietos vartotojo vardas!" ; echo "" ; tput sgr0
 					exit 1
 				else	
-					read -p "contraseña: " password
+					read -p "slaptazodis: " password
 					if [[ -z $password ]]
 					then
 						tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "Pristate priesinga darbo vieta!" ; echo "" ; tput sgr0
@@ -42,7 +42,7 @@ else
 							tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "Yra labai trumpas slaptazodis!" ; echo "Noredami islaikyti saugu vartotojo naudojima, naudokite bent 6 simbolius" ; echo "skirtingu raidziu ir skaiciu derinys!" ; echo "" ; tput sgr0
 							exit 1
 						else	
-							read -p "Dias para expirar: " dias
+							read -p "Iki datos: " dias
 							if (echo $dias | egrep '[^0-9]' &> /dev/null)
 							then
 								tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "Ivestas galiojantis dienu skaicius!" ; echo "" ; tput sgr0
@@ -78,7 +78,7 @@ else
 													gui=$(date "+%d/%m/%Y" -d "+$dias days")
 													pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
 													useradd -e $final -M -s /bin/false -p $pass $username
-													[ $? -eq 0 ] && tput setaf 2 ; tput bold ; echo ""; echo "Usuário $username creado" ; echo "Data de expiracion: $gui" ; echo "Nº de conexiones simultaneas permitidas: $sshlimiter" ; echo "" || echo "No se pudo crear el usuario!" ; tput sgr0
+													[ $? -eq 0 ] && tput setaf 2 ; tput bold ; echo ""; echo "Usuário $sukurtas vartotojo vardas" ; echo "Galiojimo laikas: $gui" ; echo "Nº leidziama vienu metu jungtis: $sshlimiter" ; echo "" || echo "Negaliu sukurti vartotojo!" ; tput sgr0
 													echo "$username $sshlimiter" >> /root/usuarios.db
 												fi
 											fi
