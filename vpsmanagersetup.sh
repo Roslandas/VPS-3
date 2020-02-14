@@ -41,30 +41,30 @@ echo "h. Los problemas que pueden ocurrir cuando se utiliza el conjunto de scrip
 echo ""
 tput setaf 3 ; tput bold ; read -n 1 -s -p "Noredami testi, paspauskite bet kuri mygtuka..." ; echo "" ; echo "" ; tput sgr0
 IP=$(wget -qO- ipv4.icanhazip.com)
-read -p "Para continuar confirme o IP de este servidor: " -e -i $IP ipdovps
+read -p "Noredami testi, patvirtinkite sio serverio IP: " -e -i $IP ipdovps
 if [ -z "$ipdovps" ]
 then
-	tput setaf 7 ; tput setab 1 ; tput bold ; echo "" ; echo "" ; echo " No ha introducido la dirección IP de este servidor. Inténtalo de nuevo. " ; echo "" ; echo "" ; tput sgr0
+	tput setaf 7 ; tput setab 1 ; tput bold ; echo "" ; echo "" ; echo " Sio serverio IP adreso nera. Intingaio de nuevo. " ; echo "" ; echo "" ; tput sgr0
 	exit 1
 fi
 if [ -f "/root/usuarios.db" ]
 then
 tput setaf 6 ; tput bold ;	echo ""
-	echo "Se encontró una base de datos de usuario ('usuarios.db')!"
-	echo "¿Quieres mantenerlo (preservando el límite de conexiones simultáneas de los usuarios)"
-	echo "o crear una nueva base de datos?"
+	echo "Rasta vartotoju duomenų baze ('usuarios.db')!"
+	echo "¿Ramybes palaiko (islaikyti vartotoju vienu metu prisijungimo riba)"
+	echo "sukurti nauja duomenu baze?"
 	tput setaf 6 ; tput bold ;	echo ""
-	echo "[1] Mantener la base de datos actual"
-	echo "[2] Crear una nueva base de datos"
+	echo "[1] Priziūrekite dabartine duomenų baze"
+	echo "[2] Sukurkite nauja duomenų baze"
 	echo "" ; tput sgr0
 	read -p "Opção?: " -e -i 1 optiondb
 else
 	awk -F : '$3 >= 500 { print $1 " 1" }' /etc/passwd | grep -v '^nobody' > /root/usuarios.db
 fi
 echo ""
-read -p "¿Quieres activar la compresión de SSH (puede aumentar el consumo de memoria RAM)? [s/n]) " -e -i n sshcompression
+read -p "¿Norite suaktyvinti SSH suspaudima (tai gali padidinti RAM atminties sunaudojima)? [s/n]) " -e -i n sshcompression
 echo ""
-tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "Espere a que la configuración automática" ; echo "" ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "Palaukite automatines konfiguracijos" ; echo "" ; tput sgr0
 sleep 3
 apt-get update -y
 apt-get upgrade -y
