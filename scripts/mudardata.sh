@@ -49,7 +49,7 @@ else
 			if [[ -z $inputdate ]]
 			then
 				echo ""
-				tput setaf 7 ; tput setab 4 ; tput bold ;	echo "Ivedėte netinkama arba neegzistuojancia data!" ; echo "Iveskite galiojancia data DAY / MONTH / YEAR formatu" ; echo "Pavyzdziui: 21/04/2018" ; tput sgr0
+				tput setaf 7 ; tput setab 4 ; tput bold ;	echo "Ivedėte netinkama arba neegzistuojancia data!" ; echo "Iveskite galiojancia data DIA/MÊS/ANO formatu" ; echo "Pavyzdziui: 21/04/2018" ; tput sgr0
 				echo ""
 				exit 1	
 			else
@@ -60,32 +60,32 @@ else
 					if [ $today -ge $timemachine ]
 					then
 						echo ""
-						tput setaf 7 ; tput setab 4 ; tput bold ;	echo "Ivedėte praeita data arba dabartine diena!" ; echo "Iveskite busima ir galiojančią data DAY / MONTH / YEAR formatu" ; echo "Pavyzdziui: 21/04/2018" ; tput sgr0
+						tput setaf 7 ; tput setab 4 ; tput bold ;	echo "Ivedėte praeita data arba dabartine diena!" ; echo "Iveskite busima ir galiojančią data DIA/MÊS/ANO formatu" ; echo "Pavyzdziui: 21/04/2018" ; tput sgr0
 						echo ""
 						exit 1
 					else
 						chage -E $sysdate $usuario
 						echo ""
-						tput setaf 7 ; tput setab 1 ; tput bold ; echo "Vartotojo $ galiojimo laikas buvo pakeistas i: $inputdate" ; tput sgr0
+						tput setaf 7 ; tput setab 1 ; tput bold ; echo "usuário $ galiojimo laikas buvo pakeistas i: $inputdate" ; tput sgr0
 						echo ""
 						exit 1
 					fi
 				else
 					echo ""
-					tput setaf 7 ; tput setab 4 ; tput bold ;	echo "Ivedėte netinkama arba neegzistuojancia data!" ; echo "Iveskite galiojancia data DAY / MONTH / YEAR formatu" ; echo "Pavyzdziui: 21/04/2018" ; tput sgr0
+					tput setaf 7 ; tput setab 4 ; tput bold ;	echo "Ivedėte netinkama arba neegzistuojancia data!" ; echo "Iveskite galiojancia data DIA/MÊS/ANO formatu" ; echo "Pavyzdziui: 21/04/2018" ; tput sgr0
 					echo ""
 					exit 1
 				fi
 			fi
 		else
 			echo ""
-			tput setaf 7 ; tput setab 4 ; tput bold ;	echo "Ivedėte netinkama arba neegzistuojančią data!" ; echo "Iveskite galiojanCIA datA DAY / MONTH / YEAR formatu" ; echo "Pavyzdziui: 21/04/2018" ; tput sgr0
+			tput setaf 7 ; tput setab 4 ; tput bold ;	echo "Ivedėte netinkama arba neegzistuojančią data!" ; echo "Iveskite galiojanCIA datA DIA/MÊS/ANO formatu" ; echo "Pavyzdziui: 21/04/2018" ; tput sgr0
 			echo ""
 			exit 1
 		fi
 	else
 		echo " "
-		tput setaf 7 ; tput setab 4 ; tput bold ;	echo "Vartotojo $ vartotojas neegzistuoja!" ; tput sgr0
+		tput setaf 7 ; tput setab 4 ; tput bold ;	echo "usuário $ vartotojas neegzistuoja!" ; tput sgr0
 		echo " "
 		exit 1
 	fi
