@@ -44,7 +44,7 @@ else
 				fi
 			fi			
 		else
-			tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "Vartotojo $ vartotojo nera sarase!" ; echo "" ; tput sgr0
+			tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "Usuário $ vartotojo nera sarase!" ; echo "" ; tput sgr0
 			exit 1
 		fi
 	fi
