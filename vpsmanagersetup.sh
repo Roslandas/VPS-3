@@ -57,7 +57,7 @@ tput setaf 6 ; tput bold ;	echo ""
 	echo "[1] Priziūrekite dabartine duomenų baze"
 	echo "[2] Sukurkite nauja duomenų baze"
 	echo "" ; tput sgr0
-	read -p "Opção?: " -e -i 1 optiondb
+	read -p "Pasirinkimas?: " -e -i 1 optiondb
 else
 	awk -F : '$3 >= 500 { print $1 " 1" }' /etc/passwd | grep -v '^nobody' > /root/usuarios.db
 fi
