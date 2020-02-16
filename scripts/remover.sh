@@ -16,18 +16,18 @@ else
 		if [[ `grep -c $user /tmp/rem` -eq 0 ]]
 		then
 			deluser $user > /dev/null
-			tput setaf 7 ; tput setab 1 ; tput bold ; echo "" ; echo "el usuário $ vartotojas buvo pasalintas!" ; echo "" ; tput sgr0
+			tput setaf 7 ; tput setab 1 ; tput bold ; echo "" ; echo "el usuário $user fue removido!" ; echo "" ; tput sgr0
 			grep -v ^$user[[:space:]] /root/usuarios.db > /tmp/ph ; cat /tmp/ph > /root/usuarios.db
 			exit 1
 		else
-			tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "Vartotojas prisijunge. Atjungimas..." ; tput sgr0
+			tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "Usuário conectado. Desconectando..." ; tput sgr0
 			pkill -f "$user"
 			deluser $user > /dev/null
-			tput setaf 7 ; tput setab 1 ; tput bold ; echo "" ; echo "elusuário $ user buvo sekmingai pasalintas!" ; echo "" ; tput sgr0
+			tput setaf 7 ; tput setab 1 ; tput bold ; echo "" ; echo "elusuário $user fue removido con exito!" ; echo "" ; tput sgr0
 			grep -v ^$user[[:space:]] /root/usuarios.db > /tmp/ph ; cat /tmp/ph > /root/usuarios.db
 			exit 1
 		fi
 	else
-		tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "el usuário $ vartotojas neegzistuoja!" ; echo "" ; tput sgr0
+		tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "el usuário $user no existe!" ; echo "" ; tput sgr0
 	fi
 fi
