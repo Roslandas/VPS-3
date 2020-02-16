@@ -58,7 +58,7 @@ else
 										tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "Privalote pristatyti daugiau nei 20 dienu!" ; echo "" ; tput sgr0
 										exit 1
 									else
-										read -p "Nº leidziama vienu metu jungtis: " sshlimiter
+										read -p "leidziama vienu metu jungtis: " sshlimiter
 										if (echo $sshlimiter | egrep '[^0-9]' &> /dev/null)
 										then
 											tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "Ivestas galiojantis jungciu skaicius!" ; echo "" ; tput sgr0
@@ -78,7 +78,7 @@ else
 													gui=$(date "+%d/%m/%Y" -d "+$dias days")
 													pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
 													useradd -e $final -M -s /bin/false -p $pass $username
-													[ $? -eq 0 ] && tput setaf 2 ; tput bold ; echo ""; echo "Usuário $sukurtas vartotojo vardas" ; echo "Galiojimo laikas: $gui" ; echo "Nº leidziama vienu metu jungtis: $sshlimiter" ; echo "" || echo "Negaliu sukurti vartotojo!" ; tput sgr0
+													[ $? -eq 0 ] && tput setaf 2 ; tput bold ; echo ""; echo "Usuário $sukurtas vartotojo vardas" ; echo "Galiojimo laikas: $gui" ; echo "leidziama vienu metu jungtis: $sshlimiter" ; echo "" || echo "Negaliu sukurti vartotojo!" ; tput sgr0
 													echo "$username $sshlimiter" >> /root/usuarios.db
 												fi
 											fi
