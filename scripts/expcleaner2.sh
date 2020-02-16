@@ -10,7 +10,7 @@ for user in $(awk -F: '{print $1}' /etc/passwd); do
 	expsec=$(date +%s --date="$expdate")
 	diff=$(echo $datenow - $expsec|bc -l)
 	tput setaf 2 ; tput bold
-	echo $diff|grep -q ^\- && echo "aktyvus (nepasalintas)" && continue
+	echo $diff|grep -q ^\- && echo "aktyvus (Nepasalintas)" && continue
 	tput setaf 1 ; tput bold
 	echo "Pasibaige (Pasalinta)"
 	pkill -f $user
