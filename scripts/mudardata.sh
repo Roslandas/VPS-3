@@ -17,7 +17,7 @@ awk -F : '$3 >= 500 { print $1 }' /etc/passwd | grep -v '^nobody' | while read u
 		if [ $hoje -ge $databr ]
 		then
 			datanormal="$(date -d"$expire" '+%d/%m/%Y')"
-			printf '  %-30s%s' "$user" "$datanormal" ; tput setaf 1 ; tput bold ; echo " (Expirado)" ; tput setaf 3
+			printf '  %-30s%s' "$user" "$datanormal" ; tput setaf 1 ; tput bold ; echo " (Pasibaige)" ; tput setaf 3
 			echo "exp" > /tmp/exp
 		else
 			datanormal="$(date -d"$expire" '+%d/%m/%Y')"
