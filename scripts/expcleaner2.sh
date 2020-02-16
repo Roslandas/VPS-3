@@ -1,7 +1,7 @@
 #!/bin/bash
 datenow=$(date +%s)
-tput setaf 7 ; tput setab 4 ; tput bold ; printf '%45s%-10s%-5s\n' "Removedor de cuentas vencidas" ""
-printf '%-20s%-25s%-20s\n' "Usuário" "Fecha de expiración" "Estado / Acción" ; echo "" ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; printf '%45s%-10s%-5s\n' "Galiojimo pabaigos valiklis" ""
+printf '%-20s%-25s%-20s\n' "Vartotojas" "Galiojimo pabaiga" "Estado / Acción" ; echo "" ; tput sgr0
 for user in $(awk -F: '{print $1}' /etc/passwd); do
 	expdate=$(chage -l $user|awk -F: '/Account expires/{print $2}')
 	echo $expdate|grep -q never && continue
@@ -10,9 +10,9 @@ for user in $(awk -F: '{print $1}' /etc/passwd); do
 	expsec=$(date +%s --date="$expdate")
 	diff=$(echo $datenow - $expsec|bc -l)
 	tput setaf 2 ; tput bold
-	echo $diff|grep -q ^\- && echo "activa (no eliminado)" && continue
+	echo $diff|grep -q ^\- && echo "aktyvus (nepasalintas)" && continue
 	tput setaf 1 ; tput bold
-	echo "Expirado (Removido)"
+	echo "Pasibaige (Pasalinta)"
 	pkill -f $user
 	userdel $user
 	grep -v ^$user[[:space:]] /root/usuarios.db > /tmp/ph ; cat /tmp/ph > /root/usuarios.db
