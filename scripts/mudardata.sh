@@ -1,12 +1,12 @@
 #!/bin/bash
-tput setaf 7 ; tput setab 4 ; tput bold ; printf '%33s%s%-12s\n' "Mudar data de expiração" ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; printf '%33s%s%-12s\n' "Pakeisti galiojimo data" ; tput sgr0
 echo ""
-tput bold ; echo "Lista de usuários e datas de expiração:" ; tput sgr0
+tput bold ; echo "Vartotoju sarasas ir galiojimo laikas:" ; tput sgr0
 echo ""
 tput setaf 3 ; tput bold 
 awk -F : '$3 >= 500 { print $1 }' /etc/passwd | grep -v '^nobody' | while read user
   do
-	expire="$(chage -l $user | grep -E "Account expires" | cut -d ' ' -f3-)"
+	expire="$(chage -l $user | grep -E "Paskyros galiojimo laikas baigiasi" | cut -d ' ' -f3-)"
 	if [[ $expire == "never" ]]
 	then
 		nunca="Nunca"
@@ -32,11 +32,11 @@ then
 	tput setaf 2 ; tput bold ; echo "Para remover todos os usuários expirados use o comando: expcleaner" ; echo "" ; tput sgr0
 	rm /tmp/exp
 fi
-read -p "Nome do usuário para alterar a data de expiração: " usuario
+read -p "Vartotojo vardas, jei norite pakeisti galiojimo laika: " usuario
 if [[ -z $usuario ]]
 then
 	echo ""
-	tput setaf 7 ; tput setab 4 ; tput bold ; echo "Você digitou um nome de usuário vazio ou inválido!" ; tput sgr0
+	tput setaf 7 ; tput setab 4 ; tput bold ; echo "Ivedete tuscia ar netinkama vartotojo varda!" ; tput sgr0
 	echo ""
 	exit 1
 else
@@ -49,7 +49,7 @@ else
 			if [[ -z $inputdate ]]
 			then
 				echo ""
-				tput setaf 7 ; tput setab 4 ; tput bold ;	echo "Você digitou uma data inválida ou inexistente!" ; echo "Digite uma data válida no formato DIA/MÊS/ANO" ; echo "Por exemplo: 21/04/2018" ; tput sgr0
+				tput setaf 7 ; tput setab 4 ; tput bold ;	echo "Ivedete netinkama arba neegzistuojancia data!" ; echo "Iveskite galiojancia data formatu DIA/MÊS/ANO" ; echo "Pavyzdziui: 21/04/2018" ; tput sgr0
 				echo ""
 				exit 1	
 			else
@@ -60,32 +60,32 @@ else
 					if [ $today -ge $timemachine ]
 					then
 						echo ""
-						tput setaf 7 ; tput setab 4 ; tput bold ;	echo "Você digitou uma data passada ou o dia atual!" ; echo "Digite uma data futura e válida no formato DIA/MÊS/ANO" ; echo "Por exemplo: 21/04/2018" ; tput sgr0
+						tput setaf 7 ; tput setab 4 ; tput bold ;	echo "Ivedete praeita data arba dabartine diena!" ; echo "Iveskite busima galiojancia data formatu DIA/MÊS/ANO" ; echo "Pavyzdziui: 21/04/2018" ; tput sgr0
 						echo ""
 						exit 1
 					else
 						chage -E $sysdate $usuario
 						echo ""
-						tput setaf 7 ; tput setab 1 ; tput bold ; echo "A data de expiração do usuário $usuario foi alterada para: $inputdate" ; tput sgr0
+						tput setaf 7 ; tput setab 1 ; tput bold ; echo "Vartotojo galiojimo laikas $usuario buvo pakeistas i: $inputdate" ; tput sgr0
 						echo ""
 						exit 1
 					fi
 				else
 					echo ""
-					tput setaf 7 ; tput setab 4 ; tput bold ;	echo "Você digitou uma data inválida ou inexistente!" ; echo "Digite uma data válida no formato DIA/MÊS/ANO" ; echo "Por exemplo: 21/04/2018" ; tput sgr0
+					tput setaf 7 ; tput setab 4 ; tput bold ;	echo "Ivedete netinkama arba neegzistuojancia data!" ; echo "Digite uma data válida no formato DIA/MÊS/ANO" ; echo "Por exemplo: 21/04/2018" ; tput sgr0
 					echo ""
 					exit 1
 				fi
 			fi
 		else
 			echo ""
-			tput setaf 7 ; tput setab 4 ; tput bold ;	echo "Você digitou uma data inválida ou inexistente!" ; echo "Digite uma data válida no formato DIA/MÊS/ANO" ; echo "Por exemplo: 21/04/2018" ; tput sgr0
+			tput setaf 7 ; tput setab 4 ; tput bold ;	echo "Ivedete netinkama arba neegzistuojancia data!" ; echo "Iveskite busima galiojancia data formatu DIA/MÊS/ANO" ; echo "Pavyzdziui: 21/04/2018" ; tput sgr0
 			echo ""
 			exit 1
 		fi
 	else
 		echo " "
-		tput setaf 7 ; tput setab 4 ; tput bold ;	echo "O usuário $usuario não existe!" ; tput sgr0
+		tput setaf 7 ; tput setab 4 ; tput bold ;	echo "Vartotojo $usuario neegzistuoja!" ; tput sgr0
 		echo " "
 		exit 1
 	fi
