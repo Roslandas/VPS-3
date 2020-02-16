@@ -29,7 +29,7 @@ tput sgr0
 echo ""
 if [ -a /tmp/exp ]
 then
-	tput setaf 2 ; tput bold ; echo "Para remover todos os usuários expirados use o comando: expcleaner" ; echo "" ; tput sgr0
+	tput setaf 2 ; tput bold ; echo "Noredami pasalinti visus pasibaigusius vartotojus, naudokite komandą: expcleaner" ; echo "" ; tput sgr0
 	rm /tmp/exp
 fi
 read -p "Vartotojo vardas, jei norite pakeisti galiojimo laika: " usuario
@@ -42,7 +42,7 @@ then
 else
 	if [[ `grep -c /$usuario: /etc/passwd` -ne 0 ]]
 	then
-		read -p "Digite uma nova data de expiração (DIA/MÊS/ANO): " inputdate
+		read -p "Iveskite nauja galiojimo data (DIA/MÊS/ANO): " inputdate
 		sysdate="$(echo "$inputdate" | awk -v FS=/ -v OFS=- '{print $3,$2,$1}')"
 		if (date "+%Y-%m-%d" -d "$sysdate" > /dev/null  2>&1)
 		then
@@ -72,7 +72,7 @@ else
 					fi
 				else
 					echo ""
-					tput setaf 7 ; tput setab 4 ; tput bold ;	echo "Ivedete netinkama arba neegzistuojancia data!" ; echo "Digite uma data válida no formato DIA/MÊS/ANO" ; echo "Por exemplo: 21/04/2018" ; tput sgr0
+					tput setaf 7 ; tput setab 4 ; tput bold ;	echo "Ivedete netinkama arba neegzistuojancia data!" ; echo "Iveskite busima galiojancia data formatu DIA/MÊS/ANO" ; echo "Pavyzdziui: 21/04/2018" ; tput sgr0
 					echo ""
 					exit 1
 				fi
