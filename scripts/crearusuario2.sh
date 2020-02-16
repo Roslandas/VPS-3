@@ -78,7 +78,7 @@ else
 													gui=$(date "+%d/%m/%Y" -d "+$dias days")
 													pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
 													useradd -e $final -M -s /bin/false -p $pass $username
-													[ $? -eq 0 ] && tput setaf 2 ; tput bold ; echo ""; echo "Vartotojas $username creado" ; echo "Galiojimo laikas: $gui" ; echo "leidziama vienu metu jungtis: $sshlimiter" ; echo "" || echo "Negaliu sukurti vartotojo!" ; tput sgr0
+													[ $? -eq 0 ] && tput setaf 2 ; tput bold ; echo ""; echo "Vartotojas $username sukurtas" ; echo "Galiojimo laikas: $gui" ; echo "leidziama vienu metu jungtis: $sshlimiter" ; echo "" || echo "Negaliu sukurti vartotojo!" ; tput sgr0
 													echo "$username $sshlimiter" >> /root/usuarios.db
 												fi
 											fi
