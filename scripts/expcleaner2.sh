@@ -1,6 +1,6 @@
 #!/bin/bash
 datenow=$(date +%s)
-tput setaf 7 ; tput setab 4 ; tput bold ; printf '%45s%-10s%-5s\n' "Galiojimo pabaigos valiklis" ""
+tput setaf 7 ; tput setab 4 ; tput bold ; printf '%45s%-10s%-5s\n' "Galiojimo pabaigos valdiklis" ""
 printf '%-20s%-25s%-20s\n' "Vartotojas" "Galiojimo pabaiga" "Bukle / Busena" ; echo "" ; tput sgr0
 for user in $(awk -F: '{print $1}' /etc/passwd); do
 	expdate=$(chage -l $user|awk -F: '/Account expires/{print $2}')
