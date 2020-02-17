@@ -12,7 +12,7 @@ if readlink /proc/$$/exe | grep -q "dash"; then
 fi
 
 if [[ "$EUID" -ne 0 ]]; then
-	echo "Sorry, you need to run this as root"
+	echo "Deja, jums reikia paleisti tai kaip root"
 	exit
 fi
 
@@ -67,7 +67,7 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 		case $option in
 			1) 
 			echo
-			echo "Escribe un nombre para el certificado del cliente"
+			echo "Nurodykite, kad nera pazymetu klientu"
 			echo "escribe, use una sola palabra, sin caracteres especiales"
 			read -p "Client name: " -e CLIENT
 			cd /etc/openvpn/easy-rsa/
