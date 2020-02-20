@@ -3,7 +3,7 @@ database="/root/usuarios.db"
 echo $$ > /tmp/kids
 while true
 do
-tput setaf 7 ; tput setab 1 ; tput bold ; printf '%28s%s%-18s\n' "SSH Monitor"
+tput setaf 7 ; tput setab 1 ; tput bold ; printf '%28s%s%-18s\n'  "SSH Monitor"
 tput setaf 7 ; tput setab 1 ; printf '  %-30s%s\n' "Vartotojas" "Pasijunge / Limitas" ; echo "" ; tput sgr0
 	while read usline
 	do
