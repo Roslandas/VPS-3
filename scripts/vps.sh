@@ -46,24 +46,6 @@ echo -e "\033[1;34m ======================================\033[0m"
 sso=$(cat -n /etc/issue |grep 1 |cut -d' ' -f6,7,8 |sed 's/1//' |sed 's/      //')
 echo -e "\033[1;31m ° \033[1;37mJUSU SISTEMA\033[1;31m$sso"
 echo -e "\033[1;34m ======================================\033[0m"
-}
-mine_port
-
-ram1=$(free -h | grep -i mem | awk {'print $2'})
-ram2=$(free -h | grep -i mem | awk {'print $4'})
-ram3=$(free -h | grep -i mem | awk {'print $3'})
-uso=$(top -bn1 | awk '/Cpu/ { cpu = "" 100 - $8 "%" }; END { print cpu }')
-system=$(cat /etc/issue.net)
-
-uso=$(top -bn1 | awk '/Cpu/ { cpu = "" 100 - $8 "%" }; END { print cpu }')
-system=$(cat /etc/issue.net)
-if [ "$system" ]
-then
-echo -e "\033[1;31mSistema\033[1;37m: \033[1;32m$system     \033[1;31mProcesorius \033[1;37m[\033[1;32m$uso\033[1;37m]"
-else
-echo -e "\033[1;32mSistema: \033[1;33m[ \033[1;31mNera \033[1;33m]"
-fi
-echo -e "\033[1;34m ======================================\033[0m"
 echo -e "\033[1;31m ∆ \033[1;33m¡SVEIKI ATVYKE I MENIU!\033[0m"
 echo -e "\033[1;34m ======================================\033[0m"
 echo -e "\033[1;31m |1|• \033[1;37mSUKURTI VARTOTOJA\033[01;37m"
